@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <style>
+    body{
+      margin-top:20%;
+      background-color: black;
+    }
+    label{
+      color: white;
+      font-size: 20px;
+      line-height: 50px;
+    }
+
+    button{
+      margin: 20px;
+      width: 200px; 
+    height: 50px;
+    }
+
+    .example{
+      padding-left: 355px;
+    }
+  </style>
+<body>
+  
+  <div class="col-md-9 example text-center">
+    <label for="exampleFormControlTextarea1" class="form-label text-white">Write Anything and Speak</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1"></textarea>
+    <button class="btn btn-success">Click and Speak</button>
+  </div>
+  <script>
+    let button = document.querySelector("button");
+    let text = document.querySelector("textarea");
+
+    button.addEventListener("click", () => {
+      let utterance = new SpeechSynthesisUtterance(text.value);
+
+      speechSynthesis.speak(utterance);
+    });
+  </script>
+</body>
+</html>
